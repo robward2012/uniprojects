@@ -1,0 +1,302 @@
+http://danu6.it.nuigalway.ie/Mordor/index.html
+
+Here is the index page and the CSS stylesheet as samples.
+
+<!Doctype html>
+<html>
+<head>
+	<title>Sparrow</title>
+	<link rel="stylesheet" type="text/css"
+		link rel="stylesheet" type="text/css" media="all" href="SparrowStyleSheet.css" />
+	<style type="text/css" >
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div id="nav">
+			<a href="index.html">Home</a> / <a href="about.html">About Us</a> / <a href="offers.html">Special Offers</a> /
+			<a href="contact.html">Contact Us</a> / <a href="links.html">Useful Links</a>
+		</div>
+	</div>
+	<div class="wrapper">
+		<div class="section1">
+			<img id="logo" src="Images/SparrowLogoReverse.png" alt="" height="80" width="80"/>
+			</br>
+			<h1>HOME</H1>
+		</div>
+			<div class="section2">
+				<div id="col1">
+					<p></p>
+				</div>
+				<div id="col2">
+					<p></p>
+				</div>
+				<div id="col3">
+					<p></p>
+				</div>
+				<div id="col4">
+					<p></p>
+				</div>
+				<div id="col5">
+					<p></p>
+				</div>
+			</div>
+		<div>
+			<h2>LATEST</h2>
+		</div>
+		<div class="section3">
+			<div class="content">
+				<img id= "paragraphA" src= "Images/GOTIMAGE12.png" alt="" height="100" width="150" />
+				<p id= "paragraph1">Winter is slowly falling across the land. First snows were seen recently in the vale, and a few 
+				flakes graced King's Landing. It is widely feared that times of old, when the 'Others' came in dead of winter are
+				upon us all again.</p>
+			</div>
+			<div class="clear"></div>
+			<div class="content">
+				<img id = "paragraphB" src= "Images/GOTIMAGE7.jpg" alt="" height="100" width="150"/>
+				<p id="paragraph2">Stannis Baratheon's army was beaten at the gates of King's Landing, with his fleet of ships sunk 
+				in the harbour. Rumour has it that Tyrion Lannister, famed dwarf, led the defence of the city and even used Wild Fire.</p>
+			</div>
+			<div class="clear"></div>
+			<div class="content">
+				<img id = "paragraphC" src= "Images/GOTIMAGE13a.jpg" alt="" height="100" width="150"/>
+				<p id="paragraph3">Settlers in the far north have reported that Wildlings have come over or through the wall en masse. It is 
+				feared that the Night's Watch have given "The Gift" area to them, amid fears that the others have stirred again.</p>
+			</div>
+		</div>
+		<div class="section4">
+			<img id="bottomLogo" src="Images/GOTreverse.png" alt="" height="40" width="100"/>
+			</br>
+			<img id="bottomSparrow" src="Images/SparrowLogoReverse.png" alt="" height="80" width="80"/>
+		</div>
+	</div>
+	<div id="footer"> 
+		<p id="disclaimer">Legal  |  Map  |  Copyright</p>
+	</div>
+</body>
+</html>
+
+@font-face {
+    font-family: 'durusansregualr';
+    src: url('Fonts/durusans-regular-webfont.eot');
+    src: url('Fonts/durusans-regular-webfont#iefix') format('embedded-opentype'),
+         url('Fonts/durusans-regular-webfont.woff') format('woff'),
+         url('Fonts/durusans-regualr-webfont.ttf') format('truetype'),
+         url('Fonts/durusans-regular-webfont.svg#railwayheavg') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+@font-face {
+    font-family: 'gameofthrones';
+    src: url('Fonts/game_of_thrones-webfont.eot');
+    src: url('Fonts/game_of_thrones-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/game_of_thrones-webfont.woff') format('woff'),
+         url('Fonts/game_of_thrones-webfont.ttf') format('truetype'),
+         url('Fonts/game_of_thrones-webfont.svg#gameofthrones') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+body {
+color: #000000;
+background-color: white;
+overflow: auto;
+width: 100%;
+font-family: durusansreglular, Helevetica, Arial, sans-serif;
+font-size: 100%;
+margin: 0 auto;}
+.wrapper {
+margin: 0 auto;
+width: 1000px;
+margin: 0 auto; }
+a.class1 {color: #f8f8ff; font-family: gameofthrones; font-size: 100%}
+a.class1:link  {text-decoration: none; color:  #f8f8ff; font-family: gameofthrones; font-size: 100% }
+a.class1:visited {text-decoration: none; color:  #f8f8ff; font-family: gameofthrones; font-size: 100% }
+a.class1:hover {text-decoration: none; color: #FF0000; font-family: gameofthrones; font-size: 100% }
+a.class2:active {text-decoration: none; color: #FF0000; font-family: gameofthrones;font-size: 100% }
+.header {
+clear: both;
+background-color: #424242;
+height: 42px;
+position: fixed;
+padding: 0px 0px 0px 0px;
+top: 0px;
+width: 100%;
+z-index: 100;}
+#nav {
+float: left;
+font-family: gameofthrones;
+padding: 15px 0px 0px 100px;
+text-align: left;
+font-size: 80%;}
+.section1 {
+overflow: auto;
+width: 100%;}
+#logo {
+padding: 75px 0px 0px 0px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+h1 {
+float: right;
+padding: 0px 0px 0px 0px;
+position: relative;
+font-family: gameofthrones;
+font-size: 80%; }
+.section2 {
+width: 100%;
+height: 350px;
+top: 75%;
+border-bottom: #424242 solid; 
+transform: translate(-50%, -50%);}
+#col1 {
+float: left;
+height: 335px;
+width: 5%;
+margin: .75%;
+background-color: orange;}
+#col2 {
+float: left;
+position: relative;
+height: 335px;
+width: 5%;
+margin: .75%;
+background-color: #B7B7AD;}
+#col3 {
+float: left;
+position: relative;
+height: 335px;
+width: 72.5%; 
+margin: .75%;
+background-image: url("Images/GOTIMAGE15a.png")}
+#col4 {
+float: left;
+position: relative;
+height: 335px;
+width: 5%;
+margin: .75%;
+background-color: #999966; }
+#col5 {
+float: left;
+position: relative;
+height: 335px;
+width: 5%; 
+margin: .75%;
+background-image: url("Images/GOTIMAGE17a.jpg");}
+h2 {
+font-family: gameofthrones;
+font-size: 80%;
+top: 91%;
+left:0;
+transform: translate(-50%, -50%);}
+.section3 {
+width: 1000px;
+height: 430px;
+left: 0%;
+border-bottom: #424242 solid;}
+.content {
+width:100%;
+vertical-align: top;
+color: #000000; }
+.clear {
+height: 0px;
+width: 100%;
+clear: both;}
+#paragraphA {
+float: left;
+margin-right: 15px;
+font-family: durusans;
+font-size: 80%; }
+#paragraph1:first-letter{
+font-family: gameofthrones;
+font-size: 200%; }
+#paragraphB {
+float: left;
+margin-right: 15px;
+font-family: durusans;
+font-size: 80%; }
+#paragraph2:first-letter {
+font-family: gameofthrones;
+font-size: 200%; }
+#paragraphC {
+float: left;
+margin-right: 15px;
+font-family: durusans;
+font-size: 80%; }
+#paragraph3:first-letter {
+font-family: gameofthrones;
+font-size: 200%; }
+a.class2 {color: #f8f8ff; font-family: gameofthrones; font-size: 120%}
+a.class2:link  {text-decoration: none; color:  #000000; font-family: gameofthrones; font-size: 120%}
+a.class2:visited {text-decoration: none; color:  #000000; font-family: gameofthrones; font-size: 120%}
+a.class2:hover {text-decoration: none; color: #FF0000; font-family: gameofthrones; font-size: 120% }
+a.class2:active {text-decoration: none; color: #FF0000; font-family: gameofthrones;font-size: 120% }
+#links {
+background-image: url("Images/GOTIMAGE18.png");
+height: 380px;
+color: #000000;
+background-position: right bottom;
+background-repeat: no-repeat;
+margin-left: 10px;}
+#bottomLogo {
+float: left;
+display: block;
+margin: 0 auto;}
+#bottomSparrow {
+clear: both;
+display: block;
+margin: 0 auto;}
+#footer{
+clear: both;
+background-color: #424242;
+margin-bottom: -20px;
+padding: 0px 0px 0px 0px;
+height: 42px;
+position: relative;
+margin-top: 30px;
+width: 100%;}
+#disclaimer {
+float: right;
+font-family: gameofthrones;
+color: #ffffff;
+font-size: 75%;
+text-align: left;}
+fieldset {
+width: 900px;
+margin-top: 10px;
+margin-bottom: 0px;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #d6d6d6;
+background-color: #ffffff;
+line-height: 1.6em;}
+legend {
+font-family: gameofthrones;
+color:#000000;}
+input[type="text"] {
+width: 700px;
+border: 1px solid #d6d6d6;
+padding: 2px;
+outline: none;}
+input[type="text"]:focus,
+input[type="text"]:hover {
+background-color: #d0e2f0;
+border: 1px solid #999;}
+input[type="submit"] {
+border: 1px solid #006633;
+background-color: #009966;
+color: #FFFFFF;
+border-radius: 5px;
+padding: 5px;
+margin-top: 10px;}
+input[type="submit"]:hover {
+border: 1px solid #006633;
+background-color: #00CC33;
+color: #FFFFFF;
+cursor: pointer;}
+.title {
+float: left;
+width: 160px;
+clear: left;}
+.submit {
+width: 310px;
+margin: 0 auto;
+text-align: right;}
