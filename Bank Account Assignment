@@ -1,0 +1,350 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Programming_2_Assignment_2
+{
+    public class BankAccount //Bank Account object with functionality
+    {
+        private string userName;
+        private string userBalance; //variables for use in method
+
+        public BankAccount()
+            : this("No Name", "0.00")//default constructor
+        {
+            //default values
+        } // end constructor
+
+        public BankAccount(string bankName, string bankBal) //explicit constructor
+        {
+            userName = bankName;
+            userBalance = bankBal;
+        } // end constructor
+
+        public string name { get; set; } //mutators 
+
+        public string balance { get; set; }
+
+        public void addAccountDetails(string bankName, string bankBal, List<BankAccount> accountsList) //method to add account details
+        {
+            BankAccount newAct = new BankAccount(); //instance of class
+            newAct.userName = (bankName);
+            newAct.userBalance = (bankBal);
+             //add attributes to newAct
+
+            if (accountsList.Count == 0) //do this if nothing in list
+            {
+                accountsList.Add(newAct);
+
+                Console.WriteLine("Account Name: " + newAct.userName + ", Balance " + newAct.userBalance + " added.");
+            } // end if
+
+            else //do this if list is populated
+            {
+                int iListLength = accountsList.Count;
+                for (int i = 0; i < iListLength; i++) //iterate through list
+                {
+                    if (accountsList[i].Equals(newAct))
+                    {
+                        Console.WriteLine("This Account is already registered.");
+                        break; //do if act exists
+                    } // end if
+
+                    else
+                    {
+                        accountsList.Add(newAct); // add item to list
+                        Console.WriteLine("Account Name: " + newAct.userName + ", Balance: " + newAct.userBalance + " added.");
+                        break; //break out if condition met
+                    }//end else
+                } // end for
+             }//end else
+        } // end method
+
+        public void modifyAccountDetails(string bankName, List<BankAccount> accountsList) //method to edit account details
+        {
+            string tempName = bankName;
+            int iListLength = accountsList.Count;
+
+            if (iListLength == 0) //do this if nothing in list
+            {
+                Console.WriteLine("There is nothing here to modify. Please add to an account to the list.");
+            } // end if
+
+            else // do this if list is populated
+            {
+                for (int i = 0; i < iListLength; i++) // iterate through list
+                {
+                    if (accountsList[i].userName.Equals(tempName)) //find the right account
+                    {
+                        Console.WriteLine("Please enter the new name for this Account: ");
+                        string accountName = Console.ReadLine(); //prompt for new name
+
+                        Console.WriteLine("Please enter the new balance for this Account: ");
+                        string accountBalance = Console.ReadLine(); //prompt for new balance
+
+                        accountsList[i].userName = (accountName);
+                        accountsList[i].userBalance = (accountBalance); // add name and balance
+
+                        Console.WriteLine("Account changed to: " + accountsList[i].userName + ", " +
+                            accountsList[i].userBalance + ".");
+
+                        break; //break if condition met
+                    } // end if
+                }//end for
+             } // end else
+        } // end class
+
+        public void deleteAccountDetails(string bankName, List<BankAccount> accountsList) //method to delete an account
+        {
+            string tempName = bankName;
+            int iListLength = accountsList.Count; //length of list prior to modifying it
+
+            if (accountsList.Count == 0) // do this if account is empty
+            {
+                Console.WriteLine("There is nothing here to delete. Please add an account to the list.");
+            } //end if
+                
+            else //do this if list is populated
+            {       
+                for (int i = 0; i < iListLength; i++) // iterate through list
+                {
+                    if (accountsList[i].userName.Equals(tempName)) //do this if the right account is found
+                    {
+                        Console.WriteLine("Account " + tempName + " deleted.");
+                        accountsList.Remove(accountsList[i]); // remove from list
+                        break; // break out of loop
+                    } //delete if elements match, end if
+                } // end for
+            } // end else
+        } //end method
+
+        public void recallAccountDetails(string bankName, List<BankAccount> accountsList) //recalls all details
+        {
+            string tempName = bankName; // temp variable for comparison
+            int iListLength = accountsList.Count;
+
+            if (accountsList.Count == 0) // do this if account is empty
+            {
+                Console.WriteLine("There is nothing here to recall. Please add an account to the list.");
+            } //end if
+
+            else // do this if list is populated
+            {
+                for (int i = 0; i < iListLength; i++)  //iterate through list
+                {
+                    if (tempName == accountsList[i].userName) //find the right account
+                    {
+                        Console.WriteLine(accountsList[i].ToString()); //print account details
+                        break; //break out after making change
+                    } // end if
+                }// end for 
+            } // end else
+        } // end method
+
+        public void printAccounts(List<BankAccount> accountsList) //method to print all accounts
+        {
+            int iListLength = accountsList.Count; // list before modifying it
+
+            if (accountsList.Count == 0) // do this if account is empty
+            {
+                Console.WriteLine("There is nothing here to print. Please add an account to the list.");
+            } //end if
+
+            else // do this if list is populated
+            {
+                for (int i = 0; i < iListLength; i++) //iterate through list
+                {
+                    Console.WriteLine(accountsList[i].ToString()); //print all entries
+                } // end for
+
+                Console.ReadLine(); //stop program to show results
+            } // end else
+        }//end method
+
+        public override string ToString() //override ToString for custom format
+        {
+            return string.Format("Account Balance: " + userName + ", " + "Account Balance: "
+                + userBalance);
+        } // end method
+
+        public void birthday() // method required for programming assignment 
+        {
+            string year, month, day, dob; //local variables to hold the user's info
+            int age;
+
+            DateTime present = DateTime.Now; //set current date 
+           
+            Console.WriteLine("Please enter the year you were born: ");
+                year = Console.ReadLine();
+                
+            Console.WriteLine("Please enter the month in which you were born (ex December = 12): ");
+                month = Console.ReadLine();
+                
+            Console.WriteLine("Please enter the day in which you were born (ex the 12th = 12): ");
+                day = Console.ReadLine();
+
+            dob = (year + "/" + month + "/" + day);
+
+            DateTime bDay = Convert.ToDateTime(dob);
+
+            if (bDay.DayOfYear <= present.DayOfYear)
+            {
+                age = (present.Year - bDay.Year);
+            }
+            else
+            {
+                age = (present.Year - bDay.Year - 1);
+            }
+            
+            if (bDay > present)  // do this if birthdate entered is less than current time
+            {
+                Console.WriteLine("Invalid entry. Please set the Flux Capacitor to October 26, 1985.");
+            } // this indicates the user was not born yet. 
+
+            else if (bDay.Month == present.Month && bDay.Day == present.Day)
+            {
+                Console.WriteLine("Happy Birthday! You are " + age + " years old.");
+            } // do this if it is the user's birthday
+
+            else
+            {
+                Console.WriteLine("You are " + age + " years old.");
+            } //out put the user's age in years, end if/else
+        } // end method
+    } // end class
+} // end namespace
+
+namespace Programming_2_Assignment_2
+{
+    class Menu //class for menu
+    {
+        public Menu()
+        {
+            
+        } // defalut constructor
+
+        public Menu(string menu1, List<BankAccount> accountsList)
+        {
+            menu = menu1;
+        } // end explicit constructor
+
+        public string menu { get; set; } // mutators
+
+        public string getMenu()
+        {
+            string menu; //re-delcare menu string for scope
+
+            Console.WriteLine("Main Menu\n"); //main menu choices
+
+            Console.WriteLine("A = Add New Account"); //add account choice
+            Console.WriteLine("M = Modify Account"); //edit account choice
+            Console.WriteLine("D = Delete Account"); //delete account choice
+            Console.WriteLine("R = Recall Account"); //recall account details
+            Console.WriteLine("E = Exit Menu"); //exit choice
+            Console.WriteLine("P = Print All");// print all choice
+
+            Console.WriteLine("\nPlease enter your choice (A,M,D,R,E, or P): "); //prompt for choice
+
+            menu = Console.ReadLine(); //read user choice
+
+            return menu; // return user's choice
+        } // end method
+
+        public void menuChoices(string menu, List<BankAccount> accountsList) //process user choices
+        {
+            BankAccount account1 = new BankAccount();
+            string newName;
+            string newBalance;
+
+            switch (menu)
+            {
+                case "A": // choice for adding
+                case "a":
+                    account1.birthday(); // invoke birthday method
+                    Console.WriteLine("\nPlease enter the new Account Holder's Name: ");
+                    newName = Console.ReadLine();
+
+                    Console.WriteLine("Please enter the Account Balance: ");
+                    newBalance = Console.ReadLine(); //prompt user for details
+
+                    account1.addAccountDetails(newName, newBalance, accountsList); // invoke add method
+
+                    break;
+
+                case "M": //choice for modifying
+                case "m":
+                    account1.birthday(); //invoke birthday method
+                    Console.WriteLine("\nPlease enter the name on the account you wish to change: ");
+                    newName = Console.ReadLine(); //prompt for details 
+
+                    account1.modifyAccountDetails(newName, accountsList); //invoke modify method
+                    break; 
+
+                case "D": // choice for deleting
+                case "d":
+                    account1.birthday(); //invoke birthday method
+                    Console.WriteLine("\nPlease enter the name of the account to Delete: ");
+                    newName = Console.ReadLine(); //prompt for details
+
+                    account1.deleteAccountDetails(newName, accountsList); //invoke delete method
+                    break; 
+
+                case "R": //choice to recall
+                case "r":
+                    Console.WriteLine("\nPlease enter the name of the account to view: ");
+                    newName = Console.ReadLine(); //prompt for details
+
+                    account1.recallAccountDetails(newName, accountsList); //invoke recall method
+                    break; 
+
+                case "E": //choice to exit 
+                case "e":
+                    Console.WriteLine("See you later!"); 
+                    break; 
+
+                case "P": // method to print all
+                case "p":
+                    Console.WriteLine("Printing all accounts.");
+                   
+                    account1.printAccounts(accountsList); //invoke print all method
+                    break;
+
+                default: //do thbis if incorrect character entered
+                    Console.WriteLine("{0} is not a valid choice.", menu);
+                    break; //case for invalid choice
+            } //end switch   
+        } // end method
+    } // end class
+} // end namespace
+
+namespace Programming_2_Assignment_2
+{
+    class BankTester //main to test bank account and menu
+    {
+        public static void Main(string[] args)
+        {
+            string menu; // variable for menu choice
+            List<BankAccount> accountsList = new List<BankAccount>(); // list to hold account info
+
+            Menu bankMenu = new Menu(); // instance of menu class
+
+            do
+            {
+                menu = bankMenu.getMenu(); // invoke menu
+
+                bankMenu.menuChoices(menu, accountsList);
+                // execute user choice
+
+                Console.WriteLine("Press Any Key to Continue...");
+
+                Console.ReadLine(); //let user view results
+
+                Console.WriteLine(); //break when key is entered
+            } // end do
+
+            while (menu != "E" && menu != "e"); //execute as long as exit condition not entered
+        } // emd main method
+    }// end class
+} // end namespace
